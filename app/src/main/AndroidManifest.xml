@@ -3,6 +3,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="com.example.koinexample">
 
+  <uses-permission android:name="android.permission.INTERNET" />
+
   <application
     android:name=".App"
     android:allowBackup="true"
@@ -12,7 +14,12 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".ui.auth.AuthorizationActivity">
+    <activity
+      android:name=".ui.feed.FeedActivity"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".ui.auth.AuthorizationActivity"
+      android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

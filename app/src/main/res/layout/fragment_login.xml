@@ -8,15 +8,6 @@
   android:paddingEnd="20dp">
 
   <EditText
-    android:id="@+id/nameInput"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:hint="@string/name_hint"
-    android:inputType="textPersonName"
-    android:textSize="18sp" />
-
-  <EditText
     android:id="@+id/emailInput"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -34,28 +25,29 @@
     android:textSize="18sp" />
 
   <Button
-    android:id="@+id/register"
+    android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="40dp"
     android:background="@color/colorPrimary"
-    android:text="@string/register_label"
+    android:text="@string/login_button_text"
     android:textAllCaps="false"
     android:textColor="@color/pureWhite"
     android:textSize="18sp" />
 
   <TextView
-    android:id="@+id/alreadyRegistered"
+    android:id="@+id/notRegistered"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="20dp"
-    android:text="@string/already_registered" />
+    android:text="@string/no_account_text" />
 
   <TextView
-    android:id="@+id/login"
+    android:id="@+id/register"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    android:text="@string/login_button_text"
+    android:text="@string/register_label"
     android:textSize="18sp" />
+
 </LinearLayout>

@@ -7,6 +7,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -20,10 +21,12 @@ const val AUTH_INTERCEPTOR = "auth"
 val networkingModule = module {
   
   //GSON
-  single { GsonConverterFactory.create() }
+  single { GsonConverterFactory.create() as Converter.Factory }
   
   //INTERCEPTORS
-  single(named(LOGGING_INTERCEPTOR)) { HttpLoggingInterceptor().level = HttpLoggingInterceptor.Level.BODY }
+  single(named(LOGGING_INTERCEPTOR)) {
+    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+  }
   single(named(AUTH_INTERCEPTOR)) {
     Interceptor {
       val request = it.request().newBuilder().addHeader(KEY_AUTHORIZATION, AUTHORIZATION_VALUE)
