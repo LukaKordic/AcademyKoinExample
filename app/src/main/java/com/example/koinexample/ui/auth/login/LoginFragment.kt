@@ -16,13 +16,17 @@ class LoginFragment : BaseFragment(), LoginContract.View {
   
   override fun initUi() {
     presenter.setView(this)
+    
     login.setOnClickListener { presenter.validateInput(emailInput.text.toString(), passwordInput.text.toString()) }
     register.setOnClickListener {
-      activity?.showFragment(R.id.authFragmentContainer, RegisterFragment(), true)
+      activity?.showFragment(R.id.authFragmentContainer, RegisterFragment(), false)
     }
   }
   
   override fun showError(error: String) = toast(error)
   
-  override fun goToFeed() = startFeedActivity(requireActivity())
+  override fun goToFeed() {
+    activity?.let { startFeedActivity(it) }
+    activity?.finish()
+  }
 }

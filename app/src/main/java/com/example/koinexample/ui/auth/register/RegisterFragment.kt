@@ -15,6 +15,8 @@ class RegisterFragment : BaseFragment(), RegisterContract.View {
   
   override fun initUi() {
     presenter.setView(this)
+    
+    login.setOnClickListener { activity?.showFragment(R.id.authFragmentContainer, LoginFragment(), false) }
     register.setOnClickListener {
       presenter.validateInput(nameInput.text.toString(), emailInput.text.toString(),
                               passwordInput.text.toString())
